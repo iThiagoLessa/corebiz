@@ -2,43 +2,39 @@ const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: "delevopment",
+  mode: "development",
   entry: "./src/index.js",
-  outpupt: {
-    filnemane: "bundle.js",
+  output: {
+    filename: "bundle.js",
     path: __dirname + "public",
   },
   devServer: {
     contentBase: "./public",
-    port: 8000,
+    port: 9000,
   },
   resolve: {
-    extensions: [".js", "jsx"],
+    extensions: [".js", ".jsx"],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "bundle.css",
-    }),
+      filename: 'bundle.css'
+    })
   ],
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.js[x]?$/,
-        exlude: /node_modules/,
-        user: ["babel-loader"],
-      },
-      {
-        test: /\.woff|.woff2|.ttf|.eot|.svg*.*$/,
-        use: ["file-loader"],
-      },
-      {
+        exclude: /node_modules/,
+        use: ["babel-loader"]
+      },{
+          test: /\.woff|.woff2|.ttf|.eot|.svg*.*$/,
+          use: ["file-loader"]
+      },{
           test: /\.s[ac]ss$/i,
-          use:[
+          use: [
               MiniCssExtractPlugin.loader,
-              "css-loader",
-              "sass-loader",
+              'css-loader',
+              'sass-loader',
           ]
-      },
-    ],
+      }],
   },
 };
