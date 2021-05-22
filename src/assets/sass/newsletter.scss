@@ -1,0 +1,32 @@
+.newsletter-area {
+    background-color: #F2F2F2;
+    padding-bottom: 16px;
+    header {
+        padding  : 24px 10px 0 10px;
+        font-size: 22px;
+    }
+
+    form {
+        display       : flex;
+        flex-direction: column;
+        padding       : 0 10px;
+
+        input {
+            margin-bottom: 20px;
+            height       : 48px;
+            padding      : 5px;
+            border       : 0;
+        }
+
+        button {
+            border          : none;
+            padding         : 8px 0;
+            border-radius   : 6px;
+            font-size       : 16px;
+            text-transform  : uppercase;
+            background-color: black;
+            color           : white;
+            height: 48px;
+        }
+    }
+}
