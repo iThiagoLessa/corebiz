@@ -1,0 +1,57 @@
+.area-best-sellers {
+    padding-bottom: 40px;
+    @media screen and (max-width: $mobile) {
+        header {
+            padding: 16px 20px;
+            h2 {
+                margin-bottom: 0;
+            }
+            hr {
+                width: 20%;
+                border: 3px solid #C0C0C0;
+            }
+        }
+
+        .products {
+            display              : grid;
+            grid-template-columns: repeat(2, calc(50% - 5px));
+            gap                  : 10px;
+            padding              : 0 10px;
+            figure {
+                height: 122px;
+                background-color: #ececec;
+                margin: 0;
+            }
+            .infos-product {
+                text-align: center;
+                .offer-discount {
+                    text-decoration: line-through;
+                }
+                h3 {
+                    font-size: 10px;
+                    color: #7A7A7A;
+                }
+                p {
+                    margin: 0;
+                    font-size: 16px;
+                    color: black;
+                }
+                span {
+                    font-size: 11px;
+                    color: #7A7A7A;
+                }
+            }
+            button {
+                margin-top: 9px;
+                width: 100%;
+                border: none;
+                padding: 8px 0;
+                border-radius: 6px;
+                font-size: 16px;
+                text-transform: uppercase;
+                background-color: black;
+                color: white;
+            }
+        }
+    }
+}
