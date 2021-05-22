@@ -1,20 +1,73 @@
+$mobile: 900px;
+
 @font-face {
     font-family: 'Nunito';
-    src: url('../fonts/Nunito-Bold.ttf');
+    src        : url('../fonts/Nunito-Bold.ttf');
 }
 
 @font-face {
     font-family: 'Nunito';
-    src: url("../fonts/Nunito-Bold.ttf");
+    src        : url("../fonts/Nunito-Bold.ttf");
     font-weight: bold;
 }
 
 @font-face {
     font-family: 'Nunito';
-    src: url('../fonts/Nunito-ExtraBold.ttf');
+    src        : url('../fonts/Nunito-ExtraBold.ttf');
     font-weight: bolder;
 }
 
 .nunito {
     font-family: Nunito;
+}
+
+body {
+    margin: 0;
+}
+
+main {
+    @media screen and (max-width: $mobile) {
+        .top {
+            display              : grid;
+            grid-template-columns: 25% 50% 25%;
+            padding: 10px 20px;
+            nav, .logo, .cart {
+                display: flex;
+                align-items: flex-end;
+            }
+            .logo {
+                justify-content: center;
+            }
+            .cart {
+                justify-content: flex-end;
+                span {
+                    display: flex;
+                    justify-content: center;
+                    background-color: #F8475F;
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 100%;
+                    color: white;
+                    font-size: 10px;
+                    margin-left: 10px;
+                }
+            }
+            div:nth-child(4) {
+                width      : 100%;
+                grid-row   : 2;
+                grid-column: 1 / 4;
+                display: flex;
+                margin-top: 15px;
+                border-bottom: 1.00051px solid #7A7A7A;
+                padding-bottom: 10px;
+                input {
+                    flex-grow: 3;
+                    border: none;
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
 }
