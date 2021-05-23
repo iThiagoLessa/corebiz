@@ -4,18 +4,38 @@
     align-items     : center;
 
     div {
-        display       : flex;
-        flex-direction: column;
+        display: flex;
+
+        @media screen and (min-width: $desktopLarge) {
+            width: 1170px;
+        }
+        color: white;
+
         @media screen and (min-width: $desktop) {
-            height: 100%;
-            background-color: black;
-            color: white;
+            width          : 970px;
+            margin-right   : auto;
+            margin-left    : auto;
+            height         : 100%;
+            color          : white;
             justify-content: center;
-            width: 50%;
+
             .banner-text {
-                width: auto;
-                text-align: left;
+                position      : relative;
+                text-align    : left;
+                flex-direction: column;
+                z-index       : 10;
+
+                h1 {
+                    margin: 0;
+                }
             }
+
+            .banner-image {
+                width: 60%;
+            }
+        }
+        @media screen and (max-width: $mobile) {
+            flex-direction: column;
         }
     }
 

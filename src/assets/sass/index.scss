@@ -23,6 +23,17 @@ $desktopLarge: 1200px;
     font-weight: bolder;
 }
 
+@font-face {
+    font-family: 'Lato';
+    src: url("../fonts/Lato-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url("../fonts/Lato-Bold.ttf");
+    font-weight: bold;
+}
+
 .nunito {
     font-family: Nunito;
 }
@@ -107,6 +118,7 @@ main {
                     font-size: 13px;
                     width: auto;
                     align-items: center;
+                    align-self: center;
                 }
             }
         }

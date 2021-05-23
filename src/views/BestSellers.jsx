@@ -41,6 +41,8 @@ const BestSeller = (props) => {
           <div>
             <figure>
               <img src="" />
+              <div className="discount-spotlight"></div>
+              <span className="off nunito">OFF</span>
             </figure>
             <div className="infos-product nunito">
               <div>

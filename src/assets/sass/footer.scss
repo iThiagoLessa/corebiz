@@ -10,7 +10,6 @@
             width       : 970px;
             margin-right: auto;
             margin-left : auto;
-            margin-top  : 15px;
 
             display: grid;
             grid-template-columns: repeat(3, calc(33.3% - 23px));
@@ -41,6 +40,7 @@
             p {
                 margin-top: 0;
                 font-size : 13px;
+                line-height: 24px;
             }
         }
     }
@@ -91,6 +91,7 @@
 
                 h2 {
                     font-size: 18px;
+                    padding: 0;
                 }
 
                 hr {
