@@ -2,7 +2,8 @@ import React from "react";
 import MenuHambuguer from "../assets/img/icons/menu-icon.svg";
 import Logo from "../assets/img/logo-corebiz.svg";
 import ShoppingCart from "../assets/img/shopping-cart.svg";
-import IconSearch from "../assets/img/magnifying-glass.svg"
+import IconSearch from "../assets/img/magnifying-glass.svg";
+import UserIcon from "../assets/img/icons/user.svg";
 
 const Top = (props) => {
   return (
@@ -14,6 +15,10 @@ const Top = (props) => {
         <img src={Logo} alt="Logo Corebiz" />
       </div>
       <div className="cart">
+        <div className="user-account">
+          <img src={UserIcon} alt="Shopping Cart" />
+          <span>Minha Conta</span>
+        </div>
         <img src={ShoppingCart} alt="Shopping Cart" />
         <span>1</span>
       </div>

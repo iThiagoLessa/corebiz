@@ -1,8 +1,11 @@
-$mobile: 900px;
+$mobile      : 900px;
+$desktop     : 901px;
+$desktopLarge: 1200px;
 @import "../sass/slider.scss";
 @import "../sass/bestSellers.scss";
 @import "../sass/newsletter.scss";
 @import "../sass/footer.scss";
+
 @font-face {
     font-family: 'Nunito';
     src        : url('../fonts/Nunito-Bold.ttf');
@@ -28,12 +31,95 @@ body {
     margin: 0;
 }
 
+button {
+    cursor: pointer;
+}
+
 main {
-    @media screen and (max-width: $mobile) {
-        .top {
+    .top {
+        display              : grid;
+        grid-template-columns: 15% 65% 20%;
+        padding-bottom       : 30px;
+
+        @media screen and (min-width: $desktopLarge) {
+            width: 1170px;
+        }
+
+        @media screen and (min-width: $desktop) {
+
+            width       : 970px;
+            margin-right: auto;
+            margin-left : auto;
+            margin-top  : 15px;
+
+            nav {
+                display: none;
+            }
+
+
+            .logo,
+            .cart {
+                display    : flex;
+                align-items: center;
+            }
+
+            .cart {
+                justify-content: flex-end;
+
+                span {
+                    display         : flex;
+                    justify-content : center;
+                    background-color: #F8475F;
+                    width           : 14px;
+                    height          : 14px;
+                    border-radius   : 100%;
+                    color           : white;
+                    font-size       : 10px;
+                    margin-left     : 10px;
+                }
+            }
+
+            div:nth-child(4) {
+                width         : 100%;
+                grid-row      : 1;
+                grid-column   : 2 / 3;
+                display       : flex;
+                border-bottom : 1.00051px solid #7A7A7A;
+                padding-bottom: 5px;
+
+                input {
+                    flex-grow: 3;
+                    border   : none;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+
+            .user-account {
+                display: flex;
+                justify-content: center;
+                flex-grow: 1;
+                span {
+                    background-color: transparent;
+                    color: #7A7A7A;
+                    font-size: 13px;
+                    width: auto;
+                    align-items: center;
+                }
+            }
+        }
+
+        @media screen and (max-width: $mobile) {
+
             display              : grid;
             grid-template-columns: 25% 50% 25%;
             padding              : 10px 20px;
+
+            .user-account {
+                display: none;
+            }
 
             nav,
             .logo,

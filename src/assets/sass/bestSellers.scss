@@ -1,14 +1,97 @@
 .area-best-sellers {
+
+    @media screen and (min-width: $desktopLarge) {
+        width: 1170px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        width       : 970px;
+        margin-right: auto;
+        margin-left : auto;
+        margin-top  : 15px;
+    }
+
     padding-bottom: 40px;
+
+    header {
+        hr {
+            width : 8%;
+            border: 3px solid #C0C0C0;
+        }
+
+        h2 {
+            margin-bottom: 0;
+        }
+
+        padding: 0 0 30px 0;
+    }
+
+    .products {
+        display              : grid;
+        grid-template-columns: repeat(4, calc(25% - 23px));
+        gap                  : 30px;
+
+        .product {
+            .button {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        .infos-product {
+            height: 118px;
+            .offer-discount {
+                text-decoration: line-through;
+            }
+
+            text-align: center;
+
+            h3 {
+                font-size     : 12px;
+                color         : #7A7A7A;
+                text-transform: uppercase;
+            }
+
+            p {
+                margin     : 0;
+                font-size  : 18px;
+                color      : black;
+                font-weight: bolder;
+            }
+
+            span {
+                font-size: 11px;
+                color    : #7A7A7A;
+            }
+        }
+        button {
+            margin-top      : 9px;
+            width           : 50%;
+            border          : none;
+            padding         : 8px 0;
+            border-radius   : 6px;
+            font-size       : 16px;
+            text-transform  : uppercase;
+            background-color: black;
+            color           : white;
+        }
+    }
+
+    figure {
+        height          : 200px;
+        background-color: #ececec;
+        margin          : 0;
+    }
+
+    /*  CSS TO MOBILE AND TABLETS */
+
     @media screen and (max-width: $mobile) {
         header {
             padding: 16px 20px;
-            h2 {
-                margin-bottom: 0;
-            }
+
             hr {
                 width: 20%;
-                border: 3px solid #C0C0C0;
             }
         }
 
@@ -17,40 +100,28 @@
             grid-template-columns: repeat(2, calc(50% - 5px));
             gap                  : 10px;
             padding              : 0 10px;
+
             figure {
                 height: 122px;
-                background-color: #ececec;
-                margin: 0;
             }
+
             .infos-product {
-                text-align: center;
-                .offer-discount {
-                    text-decoration: line-through;
-                }
+                height: 112px;
+
                 h3 {
                     font-size: 10px;
-                    color: #7A7A7A;
                 }
+
                 p {
-                    margin: 0;
+                    margin   : 0;
                     font-size: 16px;
-                    color: black;
-                }
-                span {
-                    font-size: 11px;
-                    color: #7A7A7A;
                 }
             }
+
             button {
-                margin-top: 9px;
-                width: 100%;
-                border: none;
-                padding: 8px 0;
-                border-radius: 6px;
-                font-size: 16px;
-                text-transform: uppercase;
-                background-color: black;
-                color: white;
+                width           : 100%;
+                border-radius   : 6px;
+                font-size       : 16px;
             }
         }
     }
