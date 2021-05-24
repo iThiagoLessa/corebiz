@@ -65,6 +65,7 @@ const BestSeller = (props) => {
                   <img src={StarEmpty} alt="Avaliation" />
                   <img src={StarEmpty} alt="Avaliation" />
                   <img src={StarEmpty} alt="Avaliation" />
+
                 </div>
                 <div className="offer-price">
 
@@ -75,7 +76,7 @@ const BestSeller = (props) => {
                   <p>
                     por <CurrencyFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'R$'} /> 
                   </p>
-                  <span className={product.installments.length <= 0 ? "hidden" : ""}>{`ou em ${plots} de `}<CurrencyFormat value={valuePlots} displayType={'text'} thousandSeparator={true} prefix={'R$'} /> </span>
+                  <span className={product.installments.length <= 0 ? "hidden" : ""}>{`ou em ${plots}x de `}<CurrencyFormat value={valuePlots} displayType={'text'} thousandSeparator={true} prefix={'R$'} /> </span>
                 </div>
               </div>
               <div className="button">
