@@ -17,13 +17,14 @@ class App extends Component {
       shoppingCart: 0,
     }
 
+    /* executa o metodo que busca os produtos */
     this.getProducts();
   }
 
+  /* Caso tenha sido adicionado algum produto, ele resgata do localStorage */
   componentDidMount() {
     const addedProducts = localStorage.getItem("shoppingCart") !== null ? localStorage.getItem("shoppingCart") : 0;
     const qtd = parseInt(addedProducts);
-    console.log(qtd);
     qtd > 0 ? this.setState({shoppingCart: qtd}): this.setState({shoppingCart: 0})
   }
 

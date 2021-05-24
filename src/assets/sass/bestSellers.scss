@@ -94,6 +94,12 @@
                 font-size  : 18px;
                 color      : black;
                 font-weight: bolder;
+
+                span {
+                    font-size  : 18px;
+                    color      : black;
+                    font-weight: bolder;
+                }
             }
 
             span {
@@ -147,6 +153,18 @@
     }
 
     /*  CSS TO MOBILE AND TABLETS */
+    @media screen and (min-width: 760px) and (max-width: 900px) {
+        .products {
+            .product {
+                .area-image-product {
+                    background-color: #fcfbfc;
+                    img {
+                        object-fit: contain;
+                    }
+                }
+            }
+        }
+    }
 
     @media screen and (max-width: $mobile) {
         header {
@@ -172,7 +190,9 @@
             }
 
             .infos-product {
-
+                .product-name {
+                    height: 50px;
+                }
                 h3 {
                     font-size: 10px;
                 }

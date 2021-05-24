@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import Star from "../assets/img/icons/star.svg";
 import StarEmpty from "../assets/img/icons/star-empty.svg";
 import Carousel from "react-elastic-carousel";
+import CurrencyFormat from "react-currency-format";
 
 const BestSeller = (props) => {
+  
+  /* BREAKPOINTS PARA O SLIDER */
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
@@ -25,6 +28,8 @@ const BestSeller = (props) => {
       const plots =
         product.installments.length > 0 ? product.installments[0].quantity : "";
 
+      const valuePlots =  product.installments.length > 0 ? product.installments[0].value : "";
+
       /* esconder divs desnecessárias para o produto */
       const hidden =
         product.listPrice === null ? "hidden" : parseInt(product.listPrice);
@@ -37,6 +42,7 @@ const BestSeller = (props) => {
 
       const createStars = (stars) => {
         const limit = 5;
+        //console.log(stars);
       };
 
       return (
@@ -48,11 +54,12 @@ const BestSeller = (props) => {
                 <span className={`off nunito ${hidden}`}>OFF</span>
               </figure>
               <div className="infos-product nunito">
-                <div>
+                <div className="product-name">
                   <h3>{product.productName}</h3>
                 </div>
                 <div className="star-avaliation">
-                  {createStars(product.stars)}
+                  {/*createStars(product.stars)*/}
+                  
                   <img src={Star} alt="Avaliation" />
                   <img src={StarEmpty} alt="Avaliation" />
                   <img src={StarEmpty} alt="Avaliation" />
@@ -60,11 +67,15 @@ const BestSeller = (props) => {
                   <img src={StarEmpty} alt="Avaliation" />
                 </div>
                 <div className="offer-price">
-                  <span
-                    className={`offer-discount ${hidden}`}
-                  >{`de R$ ${OfferDiscount}`}</span>
-                  <p>por {`R$ ${price}`} </p>
-                  <span>{`ou em ${plots} de R$ 28,87`}</span>
+
+                  <span className={`offer-discount ${hidden}`} >
+                    de <CurrencyFormat value={OfferDiscount} displayType={'text'} thousandSeparator={true} prefix={'R$'} />
+                  </span>
+
+                  <p>
+                    por <CurrencyFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'R$'} /> 
+                  </p>
+                  <span className={product.installments.length <= 0 ? "hidden" : ""}>{`ou em ${plots} de `}<CurrencyFormat value={valuePlots} displayType={'text'} thousandSeparator={true} prefix={'R$'} /> </span>
                 </div>
               </div>
               <div className="button">

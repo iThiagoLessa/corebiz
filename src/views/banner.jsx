@@ -4,7 +4,8 @@ import SliderDark from "../assets/img/Banner.svg"
 
 const Banner = (props) => {
   return (
-    <section className="banner-area nunito" style={{background: `url(${SliderDark}) right no-repeat`}}>
+    <section className="banner-area nunito" style={{backgroundImage: `url(${SliderDark})`}}>
+      <img src={SliderImage} alt="criar ou migrar seu e-commerce" />
       <div>
         <div className="banner-text">
           <span>Olá, o que você está procurando?</span>
