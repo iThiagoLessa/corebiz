@@ -1,17 +1,10 @@
 import React, { useState } from "react";
-import Carousel from "react-elastic-carousel";
 import Stars from "../components/stars";
+import AngleRight from "../assets/img/icons/angle-right.svg";
+import AngleLeft from "../assets/img/icons/angle-left.svg";
 
 const BestSeller = (props) => {
-  /* BREAKPOINTS PARA O SLIDER */
-  const breakPoints = [
-    { width: 1, itemsToShow: 1 },
-    { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
-    { width: 850, itemsToShow: 3 },
-    { width: 1150, itemsToShow: 4, itemsToScroll: 2 },
-    { width: 1450, itemsToShow: 5 },
-    { width: 1750, itemsToShow: 6 },
-  ];
+  //console.log(props);
 
   const renderProducts = () => {
     /* Pegando a lista de produtos */
@@ -25,7 +18,7 @@ const BestSeller = (props) => {
       const plots =
         product.installments.length > 0 ? product.installments[0].quantity : "";
 
-        /* valor das parcelas */
+      /* valor das parcelas */
       const valuePlots =
         product.installments.length > 0
           ? parseInt(product.installments[0].value / 100)
@@ -49,12 +42,10 @@ const BestSeller = (props) => {
         .toFixed(2)
         .toString()
         .replace(".", ",");
-      
+
       const renderStars = (stars) => {
-        return(
-          <Stars numberStars={stars} />
-        )
-      }
+        return <Stars numberStars={stars} />;
+      };
 
       return (
         <div className="product" key={product.productId}>
@@ -76,7 +67,9 @@ const BestSeller = (props) => {
 
                 <p>por {`R$ ${price}`}</p>
                 <span>
-                  {product.installments.length > 0 ? `ou em ${plots}x de ${valuePlots}` : ""}
+                  {product.installments.length > 0
+                    ? `ou em ${plots}x de ${valuePlots}`
+                    : ""}
                 </span>
               </div>
             </div>
@@ -89,6 +82,23 @@ const BestSeller = (props) => {
     });
   };
 
+  const [disabledLeft, setDisabledLeft] = useState(false);
+  const [disabledRight, setDisabledRight] = useState(false);
+
+  const moveLeft = () => {
+    const products = document.getElementById("products");
+    products.style.left = "-240px";
+    setDisabledLeft(true);
+    setDisabledRight(false);
+  };
+
+  const moveRight = () => {
+    const products = document.getElementById("products");
+    products.style.left = "0";
+    setDisabledRight(true);
+    setDisabledLeft(false);
+  };
+
   /* RETORNO DO COMPONENTE */
   return (
     <section className="area-best-sellers">
@@ -97,8 +107,23 @@ const BestSeller = (props) => {
         <hr align="left" />
       </header>
       <div className="carousel-wrapper">
-        <div className="products">{renderProducts()}</div>
+        <div
+          id="products"
+          className="products"
+        >
+          {renderProducts()}
+        </div>
       </div>
+      <button
+        className="angle-right"
+        disabled={disabledLeft}
+        onClick={() => moveLeft()}
+      >
+        <img src={AngleRight} alt="dots" />
+      </button>
+      <button className="angle-left" disabled={disabledRight} onClick={() => moveRight()}>
+        <img src={AngleLeft} alt="dots" />
+      </button>
     </section>
   );
 };
