@@ -1,4 +1,5 @@
-# Inicio
+# INÍCIO
+
 Primeiro você precisará abrir o projeto (seja no vscode ou pelo terminal) e executar os seguintes comandos:
 
 1) npm i -> para instalar as depêndecias que são necessárias para o ambiente configurado deste projeto .\
