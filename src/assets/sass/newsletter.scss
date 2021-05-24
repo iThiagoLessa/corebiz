@@ -3,6 +3,46 @@
     background-color: #F2F2F2;
     padding-bottom  : 36px;
 
+    .registered {
+        display        : flex;
+        flex-direction : column;
+        justify-content: center;
+        align-items    : center;
+
+        header {
+            text-align   : center;
+            margin-bottom: 15px;
+
+            h2 {
+                font-size    : 22px;
+                line-height  : 25px;
+                text-align   : center;
+                font-family  : 'Lato';
+                font-weight  : bold;
+                color        : #333333;
+                margin-bottom: 0;
+                padding-bottom: 10px;
+            }
+
+            span {
+                font-family: 'Lato';
+                color      : gray;
+            }
+        }
+
+        button {
+            border          : none;
+            padding         : 8px 0;
+            border-radius   : 6px;
+            font-size       : 16px;
+            text-transform  : uppercase;
+            background-color: black;
+            color           : white;
+            height          : 48px;
+            width           : 320px;
+        }
+    }
+
     .news {
         @media screen and (min-width: $desktopLarge) {
             width: 1170px;
@@ -42,7 +82,8 @@
 
         div {
             display: flex;
-            width: 100%;
+            width  : 100%;
+
             @media screen and (max-width: $mobile) {
                 flex-direction: column;
             }
@@ -54,7 +95,7 @@
         input {
             @media screen and (min-width: $desktop) {
                 margin-right: 10px;
-                padding: 0 10px 0 10px;
+                padding     : 0 10px 0 10px;
             }
 
             @media screen and (max-width: $mobile) {
