@@ -5,6 +5,11 @@ const Newsletter = (props) => {
   const urlSubscriber = "https://corebiz-test.herokuapp.com/api/v1/newsletter";
   /* CADASTTRO DE USUARIO NA NEWSLETTER */
   const [registered, setRegistered] = useState(false);
+
+  /* ESTADOS PARA VALIDAÇÃO DOS CAMPOS VAZIOS */
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
   const sendForm = (e) => {
     e.preventDefault();
 
@@ -14,10 +19,17 @@ const Newsletter = (props) => {
     /* ENVIO DOS DADOS DO ASSINANTE */
     Axios.post(urlSubscriber, { name: name.value, email: email.value })
       .then((resp) => {
+         /* SUCESSO DA REQUISIÇÃO */
         setRegistered(true);
+
       })
       .catch((error) => {
-        console.log(error);
+        //console.log(error.response.status);
+        
+        /* VALIDAÇÃO DO FORM */
+        name.value === "" ? setName("Preencha com seu nome completo") : setName("");
+        email.value === "" ? setEmail("Preencha com um e-email válido") : setEmail("");
+        
       });
   };
 
@@ -30,14 +42,22 @@ const Newsletter = (props) => {
         <div className="news registered">
           <header>
             <h2>Seu e-mail foi cadastrado com sucesso!</h2>
-            <span>A partir de agora você receberá as novidades e ofertas exclusivas</span>
+            <span>
+              A partir de agora você receberá as novidades e ofertas exclusivas
+            </span>
           </header>
-          <button onClick={() => {setRegistered(false)}}>Cadastrar novo e-mail</button>
+          <button
+            onClick={() => {
+              setRegistered(false);
+            }}
+          >
+            Cadastrar novo e-mail
+          </button>
         </div>
       </section>
     );
   }
-  /* INICIAL DO COMPONENTE */
+  /* INICIO DO COMPONENTE */
   return (
     <section className="newsletter-area">
       <div className="news">
@@ -46,8 +66,24 @@ const Newsletter = (props) => {
         </header>
         <form name="registration" onSubmit={(e) => sendForm(e)}>
           <div>
-            <input type="text" name="name" placeholder="Digite seu nome" />
-            <input type="email" name="email" placeholder="Digite seu email" />
+            <div className="label-newsletter">
+              <input
+                type="text"
+                name="name"
+                className={name != "" ? "form-error" : ""}
+                placeholder="Digite seu nome"
+              />
+              <span className="error">{name}</span>
+            </div>
+            <div className="label-newsletter">
+              <input
+                type="email"
+                name="email"
+                className={email != "" ? "form-error" : ""}
+                placeholder="Digite seu email"
+              />
+              <span className="error">{email}</span>
+            </div>
           </div>
           <button>Eu quero!</button>
         </form>
