@@ -6,6 +6,13 @@ import IconSearch from "../assets/img/magnifying-glass.svg";
 import UserIcon from "../assets/img/icons/user.svg";
 
 const Top = (props) => {
+  const quantidadeProdutos = () => {
+    if (props.productsInCart > 0) {
+      localStorage.setItem("shoppingCart", props.productsInCart);
+      return <span>{props.productsInCart}</span>;
+    }
+  };
+
   return (
     <header className="nunito top">
       <nav>
@@ -20,7 +27,7 @@ const Top = (props) => {
           <span>Minha Conta</span>
         </div>
         <img src={ShoppingCart} alt="Shopping Cart" />
-        <span>1</span>
+        {quantidadeProdutos()}
       </div>
       <div>
         <input type="text" placeholder="O que você está procurando?" />

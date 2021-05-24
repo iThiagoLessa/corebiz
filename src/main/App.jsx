@@ -11,24 +11,39 @@ const urlProducts = "https://corebiz-test.herokuapp.com/api/v1/products";
 class App extends Component {
   constructor(props) {
     super(props);
+    this.handleAddToCart = this.handleAddToCart.bind(this);
     this.state = {
       products: [],
+      shoppingCart: 0,
     }
 
     this.getProducts();
   }
+
+  componentDidMount() {
+    const addedProducts = localStorage.getItem("shoppingCart") !== null ? localStorage.getItem("shoppingCart") : 0;
+    const qtd = parseInt(addedProducts);
+    console.log(qtd);
+    qtd > 0 ? this.setState({shoppingCart: qtd}): this.setState({shoppingCart: 0})
+  }
+
   getProducts() {
     Axios.get(`${urlProducts}`).then((resp) => {
       const products = resp.request.status ? resp.data : {};
       this.setState({products});
     });
   }
+
+  handleAddToCart() {
+    this.setState({shoppingCart: this.state.shoppingCart + 1});
+  }
+
   render() {
     return (
       <main>
-        <Top />
+        <Top productsInCart={this.state.shoppingCart} />
         <Banner />
-        <BestSeller products={this.state.products} />
+        <BestSeller products={this.state.products} addToCart={this.handleAddToCart} />
         <Newsletter />
         <Footer />
       </main>

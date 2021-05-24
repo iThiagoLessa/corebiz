@@ -68,7 +68,7 @@ const BestSeller = (props) => {
                 </div>
               </div>
               <div className="button">
-                <button>Comprar</button>
+                <button onClick={props.addToCart}>Comprar</button>
               </div>
             </div>
           </div>
