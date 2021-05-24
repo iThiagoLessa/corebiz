@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import Star from "../assets/img/icons/star.svg";
-import StarEmpty from "../assets/img/icons/star-empty.svg";
 import Carousel from "react-elastic-carousel";
+import Stars from "../components/stars";
 
 const BestSeller = (props) => {
   /* BREAKPOINTS PARA O SLIDER */
@@ -50,19 +49,12 @@ const BestSeller = (props) => {
         .toFixed(2)
         .toString()
         .replace(".", ",");
-
-      const createStars = (stars) => {
-        const limit = 5;
-        const divStars = document.createElement("div");
-        divStars.classList.add("star-avaliation");
-        for(let i = 0; i <= stars; i++) {
-          const img = document.createElement('img');
-          img.setAttribute('src', Star);
-          img.setAttribute('alt', 'Avaliation');
-          divStars.appendChild(img);
-        }
-        console.log(divStars);
-      };
+      
+      const renderStars = (stars) => {
+        return(
+          <Stars numberStars={stars} />
+        )
+      }
 
       return (
         <div className="product" key={product.productId}>
@@ -76,15 +68,7 @@ const BestSeller = (props) => {
               <div className="product-name">
                 <h3>{product.productName}</h3>
               </div>
-              <div className="star-avaliation">
-                {createStars(product.stars)}
-
-                {/*<img src={Star} alt="Avaliation" />
-                <img src={StarEmpty} alt="Avaliation" />
-                <img src={StarEmpty} alt="Avaliation" />
-                <img src={StarEmpty} alt="Avaliation" />
-                <img src={StarEmpty} alt="Avaliation" />*/}
-              </div>
+              {renderStars(product.stars)}
               <div className="offer-price">
                 <span className={`offer-discount ${hidden}`}>
                   de {`R$ ${OfferDiscount}`}
