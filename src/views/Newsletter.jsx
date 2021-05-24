@@ -49,6 +49,8 @@ const Newsletter = (props) => {
           <button
             onClick={() => {
               setRegistered(false);
+              setName("");
+              setEmail("");
             }}
           >
             Cadastrar novo e-mail
