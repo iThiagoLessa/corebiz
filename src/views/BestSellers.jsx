@@ -53,7 +53,15 @@ const BestSeller = (props) => {
 
       const createStars = (stars) => {
         const limit = 5;
-        console.log(stars);
+        const divStars = document.createElement("div");
+        divStars.classList.add("star-avaliation");
+        for(let i = 0; i <= stars; i++) {
+          const img = document.createElement('img');
+          img.setAttribute('src', Star);
+          img.setAttribute('alt', 'Avaliation');
+          divStars.appendChild(img);
+        }
+        console.log(divStars);
       };
 
       return (
@@ -71,11 +79,11 @@ const BestSeller = (props) => {
               <div className="star-avaliation">
                 {createStars(product.stars)}
 
-                <img src={Star} alt="Avaliation" />
+                {/*<img src={Star} alt="Avaliation" />
                 <img src={StarEmpty} alt="Avaliation" />
                 <img src={StarEmpty} alt="Avaliation" />
                 <img src={StarEmpty} alt="Avaliation" />
-                <img src={StarEmpty} alt="Avaliation" />
+                <img src={StarEmpty} alt="Avaliation" />*/}
               </div>
               <div className="offer-price">
                 <span className={`offer-discount ${hidden}`}>
