@@ -11,4 +11,4 @@ Primeiro você precisará abrir o projeto (seja no vscode ou pelo terminal) e ex
 2) Os estão sendo carregados da API externa e sendo exibidos já com a formatação de preço .
 3) Os Assinantes de newsletter recebem as mensagens de erro ou sucesso de acordo com o exigido no PDF .
 4) Ao adicionar um produto no carrinho, a contagem fica salva no localStorage do browser .
-
+5) O layout foi desenvolvido mobile first e está 100% responsivo, tanto no mobile quanto no desktop.
