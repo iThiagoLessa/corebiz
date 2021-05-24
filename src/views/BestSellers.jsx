@@ -70,15 +70,13 @@ const BestSeller = (props) => {
               </div>
               {renderStars(product.stars)}
               <div className="offer-price">
-                <span className={`offer-discount ${hidden}`}>
-                  de {`R$ ${OfferDiscount}`}
+                <span className={`offer-discount`}>
+                  {product.listPrice !== null ? `de R$ ${OfferDiscount}` : ""}
                 </span>
 
                 <p>por {`R$ ${price}`}</p>
-                <span
-                  className={product.installments.length <= 0 ? "hidden" : ""}
-                >
-                  {`ou em ${plots}x de ${valuePlots}`}{" "}
+                <span>
+                  {product.installments.length > 0 ? `ou em ${plots}x de ${valuePlots}` : ""}
                 </span>
               </div>
             </div>
