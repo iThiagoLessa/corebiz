@@ -6,7 +6,7 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
-  mode: modoDev ? "development" : "production",
+  mode: modoDev ? 'development' : 'production',
   entry: "./src/index.js",
   output: {
     filename: "bundle.js",
